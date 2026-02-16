@@ -6,9 +6,9 @@ public class Division(int pLeft, int pRight) : Problem(pLeft, pRight, Operation.
     public static Division GenerateRandom()
     {
         var random = new Random();
-        int left = 0, right = 0;
+        int left = 1, right = 1;
 
-        while(left <= right && (left % right) != 0)
+        while(left <= right || (left % right) != 0)
         {
             left = random.Next(1,100);
             right = random.Next(1,99);
