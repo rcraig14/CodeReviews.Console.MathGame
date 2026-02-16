@@ -26,10 +26,10 @@ public class GameControler : IGameController
     public Problem GenerateProblem(Operation operation) {
         CurrentProblem = operation switch
         {
-            Operation.Addition => new Addition(1, 2),
-            Operation.Subtraction => new Subtraction(2, 1),
-            Operation.Multiplication => new Multiplication(2, 5),
-            Operation.Division => new Division(4, 2),
+            Operation.Addition => Addition.GenerateRandom(),
+            Operation.Subtraction => Subtraction.GenerateRandom(),
+            Operation.Multiplication => Multiplication.GenerateRandom(),
+            Operation.Division => Division.GenerateRandom(),
             _ => throw new ArgumentOutOfRangeException(nameof(operation), $"Unexpected operation value: {operation}")
         };
 

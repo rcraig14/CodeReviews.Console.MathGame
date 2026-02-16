@@ -5,19 +5,19 @@ namespace MathGame.rcraig14.Models;
 public class SubmittedAnswer
 {
     public Problem Problem{ get; }
-    public int Answer { get; }
+    public int UserAnswer { get; }
 
 
     public SubmittedAnswer(Problem problem, int answer)
     {
         Problem = problem;
-        Answer = answer;
+        UserAnswer = answer;
     }
 
-    public bool isCorrect() => Problem.Answer() == Answer;
+    public bool isCorrect() => Problem.Answer() == UserAnswer;
 
     public override string ToString()
     {
-        return isCorrect() ? "Answer was correct" : "Answer is incorrect";
+        return isCorrect() ? $"Correct the answer is {Problem.Answer()}" : $"Incorrect the answer is {Problem.Answer()}";
     }
 }
