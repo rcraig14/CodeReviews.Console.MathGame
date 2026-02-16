@@ -58,11 +58,11 @@ public class UserInteractionsController : IUserInteractionsController
     public Operation GetNextOperationType()
     {
         Console.WriteLine(@"
-        Select a type of problem
-            - Additon (a)
-            - Subtraction (s)
-            - Multipication (m)
-            - Division (d)");
+Select a type of problem
+    - Additon (a)
+    - Subtraction (s)
+    - Multipication (m)
+     - Division (d)");
 
         string? problemType = Console.ReadLine();
 
