@@ -27,6 +27,12 @@ public class MathGameRunner
         _userInteractionController.DisplayResults(submittedAnswer);
     }
 
+    private void History()
+    {
+        var history = _gameController.GetAnswerHistory();
+        _userInteractionController.DisplayAnswerHistory(history);
+    }
+
     public void start()
     {
         _userInteractionController.DisplayWelcome();
@@ -39,6 +45,9 @@ public class MathGameRunner
             {
                 case NextStep.Quit:
                     _newProblem = false;
+                    break;
+                case NextStep.History:
+                    this.History();
                     break;
                 default:
                     this.NextProblem();

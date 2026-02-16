@@ -3,5 +3,6 @@ namespace MathGame.rcraig14;
 public enum NextStep
 {
     Quit,
-    NewProblem
+    NewProblem,
+    History
 }

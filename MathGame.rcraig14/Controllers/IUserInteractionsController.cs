@@ -11,5 +11,6 @@ public interface IUserInteractionsController
     public Operation GetNextOperationType();
     public int GetAnswer(Problem problem);
     public void DisplayResults(SubmittedAnswer submittedAnswer);
+    public void DisplayAnswerHistory(List<SubmittedAnswer> submittedAnswers);
 
 }

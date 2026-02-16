@@ -7,17 +7,6 @@ public class GameController : IGameController
 
     private Problem? CurrentProblem { get; set; }
     private List<SubmittedAnswer> AnswerHistory { get; set; }
-    private Random _random
-    {
-        get => _random ?? new Random();
-        set => _random = value;
-    }
-
-    public GameController(Random random)
-    {
-        _random = random;
-        AnswerHistory = new List<SubmittedAnswer>();
-    }
 
     public GameController()
     {
@@ -47,7 +36,7 @@ public class GameController : IGameController
         }
 
         var submittedAnswer = new SubmittedAnswer(CurrentProblem, answer);
-        AnswerHistory.Append(submittedAnswer);
+        AnswerHistory.Add(submittedAnswer);
 
         return submittedAnswer;
     }
@@ -55,5 +44,10 @@ public class GameController : IGameController
     public void DisplayProblem()
     {
         Console.WriteLine(CurrentProblem?.ToString() ?? "Problem needs to be generated");
+    }
+
+    public List<SubmittedAnswer> GetAnswerHistory()
+    {
+        return AnswerHistory;
     }
 }

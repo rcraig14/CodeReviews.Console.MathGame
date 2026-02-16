@@ -7,5 +7,6 @@ public interface IGameController
     public Problem GenerateProblem(Operation operation);
     public void DisplayProblem();
     public SubmittedAnswer SubmitAnswer(int answer);
+    public List<SubmittedAnswer> GetAnswerHistory();
 
 }

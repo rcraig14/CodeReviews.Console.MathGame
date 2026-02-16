@@ -37,7 +37,7 @@ public class UserInteractionsController : IUserInteractionsController
     {
         while (true)
         {
-            Console.WriteLine("Get next problem (n) or quit (q)");
+            Console.WriteLine("Get next problem (n), history of problems (h), or quit (q)");
             string? input = Console.ReadLine();
 
             switch (input?.ToLower() ?? "")
@@ -46,6 +46,8 @@ public class UserInteractionsController : IUserInteractionsController
                     return NextStep.Quit;
                 case "n":
                     return NextStep.NewProblem;
+                case "h":
+                    return NextStep.History;
                 default:
                     continue;
             }
@@ -68,5 +70,17 @@ public class UserInteractionsController : IUserInteractionsController
             return GetNextOperationType();
 
         return OperationConverter.StringToOperation(problemType);
+    }
+
+    public void DisplayAnswerHistory(List<SubmittedAnswer> submittedAnswers)
+    {
+        int correct = 0;
+        submittedAnswers.ForEach(answer =>
+        {
+            Console.WriteLine($"{answer.Problem} {answer.UserAnswer} Correct: {answer.isCorrect()}");
+            correct += answer.isCorrect() ? 1 : 0;
+        });
+
+        Console.WriteLine($"Total Correct {correct} / {submittedAnswers.Count()}");
     }
 }
