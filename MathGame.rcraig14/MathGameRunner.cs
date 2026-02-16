@@ -22,8 +22,12 @@ public class MathGameRunner
     {
         Operation op = _userInteractionController.GetNextOperationType();
         Problem problem = _gameController.GenerateProblem(op);
+
+        DateTime startTime = DateTime.UtcNow;
         int userAnswer = _userInteractionController.GetAnswer(problem);
-        SubmittedAnswer submittedAnswer = _gameController.SubmitAnswer(userAnswer);
+        DateTime endTime = DateTime.UtcNow;
+
+        SubmittedAnswer submittedAnswer = _gameController.SubmitAnswer(userAnswer, endTime - startTime);
         _userInteractionController.DisplayResults(submittedAnswer);
     }
 

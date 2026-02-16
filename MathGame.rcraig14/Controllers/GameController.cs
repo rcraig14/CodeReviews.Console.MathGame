@@ -28,14 +28,14 @@ public class GameController : IGameController
     }
 
 
-    public SubmittedAnswer SubmitAnswer(int answer)
+    public SubmittedAnswer SubmitAnswer(int answer, TimeSpan timeToComplete)
     {
         if (CurrentProblem is null)
         {
             throw new ArgumentNullException("Problem must be generated before submitting answer");
         }
 
-        var submittedAnswer = new SubmittedAnswer(CurrentProblem, answer);
+        var submittedAnswer = new SubmittedAnswer(CurrentProblem, answer, timeToComplete);
         AnswerHistory.Add(submittedAnswer);
 
         return submittedAnswer;

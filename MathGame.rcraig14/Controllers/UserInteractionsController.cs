@@ -9,6 +9,7 @@ public class UserInteractionsController : IUserInteractionsController
     public void DisplayResults(SubmittedAnswer submittedAnswer)
     {
         Console.WriteLine(submittedAnswer.ToString());
+        Console.WriteLine($"It took {submittedAnswer.TimeToComplete} to complete");
     }
 
     public void DisplayWelcome()
@@ -62,7 +63,7 @@ Select a type of problem
     - Additon (a)
     - Subtraction (s)
     - Multipication (m)
-     - Division (d)");
+    - Division (d)");
 
         string? problemType = Console.ReadLine();
 
