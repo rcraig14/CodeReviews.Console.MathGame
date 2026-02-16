@@ -7,7 +7,7 @@ public class MathGameRunner
 {
     private UserInteractionsController _userInteractionController { get; }
     private GameController _gameController { get; }
-    private bool _newProblem {get; set;}
+    private bool _newProblem { get; set; }
 
     public MathGameRunner(
         UserInteractionsController userInteractionsController,
@@ -35,7 +35,7 @@ public class MathGameRunner
         {
             NextStep next = _userInteractionController.GetNextStep();
 
-            switch(next)
+            switch (next)
             {
                 case NextStep.Quit:
                     _newProblem = false;
@@ -44,7 +44,7 @@ public class MathGameRunner
                     this.NextProblem();
                     break;
             }
-            
+
         }
     }
 }

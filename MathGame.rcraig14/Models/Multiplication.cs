@@ -7,9 +7,9 @@ public class Multiplication(int pLeft, int pRight) : Problem(pLeft, pRight, Oper
         return Left * Right;
     }
 
-    public static Multiplication GenerateRandom() 
+    public static Multiplication GenerateRandom()
     {
         var random = new Random();
-        return new Multiplication(random.Next(0,100), random.Next(0,100));
+        return new Multiplication(random.Next(0, 100), random.Next(0, 100));
     }
 }

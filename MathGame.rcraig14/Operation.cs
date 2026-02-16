@@ -12,11 +12,13 @@ public enum Operation
 
 
 
-public static class OperationConverter {
+public static class OperationConverter
+{
 
     public static Operation StringToOperation(string input)
     {
-        switch(input.ToLower()) {
+        switch (input.ToLower())
+        {
             case "a":
                 return Operation.Addition;
             case "s":
@@ -27,21 +29,22 @@ public static class OperationConverter {
                 return Operation.Division;
             default:
                 throw new InvalidOperationException();
-        };
+        }
+        ;
     }
-    
+
 }
 
-public class InvalidOperationString: Exception
+public class InvalidOperationString : Exception
 {
     public InvalidOperationString()
     {
-        
+
     }
 
     public InvalidOperationString(string message) : base(message)
     {
-        
+
     }
 
 }

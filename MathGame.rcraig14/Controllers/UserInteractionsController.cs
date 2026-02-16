@@ -22,10 +22,11 @@ public class UserInteractionsController : IUserInteractionsController
         Console.Write("Answer: ");
         string? strAnswer = Console.ReadLine();
 
-        if(int.TryParse(strAnswer, out int intOut))
+        if (int.TryParse(strAnswer, out int intOut))
         {
             return intOut;
-        } else
+        }
+        else
         {
             Console.WriteLine("Only integers can be submitted for answers");
             return GetAnswer(problem);
@@ -34,12 +35,12 @@ public class UserInteractionsController : IUserInteractionsController
 
     public NextStep GetNextStep()
     {
-        while(true)
+        while (true)
         {
             Console.WriteLine("Get next problem (n) or quit (q)");
             string? input = Console.ReadLine();
 
-            switch(input?.ToLower() ?? "" )
+            switch (input?.ToLower() ?? "")
             {
                 case "q":
                     return NextStep.Quit;
@@ -49,7 +50,7 @@ public class UserInteractionsController : IUserInteractionsController
                     continue;
             }
         }
-        
+
     }
 
     public Operation GetNextOperationType()
@@ -61,9 +62,9 @@ public class UserInteractionsController : IUserInteractionsController
             - Multipication (m)
             - Division (d)");
 
-         string? problemType = Console.ReadLine();
+        string? problemType = Console.ReadLine();
 
-         if(problemType is null)
+        if (problemType is null)
             return GetNextOperationType();
 
         return OperationConverter.StringToOperation(problemType);

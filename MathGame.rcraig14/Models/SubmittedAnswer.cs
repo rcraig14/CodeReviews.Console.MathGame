@@ -4,7 +4,7 @@ namespace MathGame.rcraig14.Models;
 
 public class SubmittedAnswer
 {
-    public Problem Problem{ get; }
+    public Problem Problem { get; }
     public int UserAnswer { get; }
 
 

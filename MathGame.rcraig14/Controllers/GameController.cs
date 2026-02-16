@@ -5,9 +5,10 @@ namespace MathGame.rcraig14.Controllers;
 public class GameController : IGameController
 {
 
-    private Problem? CurrentProblem {get; set;}
-    private List<SubmittedAnswer> AnswerHistory {get; set;}
-    private Random _random {
+    private Problem? CurrentProblem { get; set; }
+    private List<SubmittedAnswer> AnswerHistory { get; set; }
+    private Random _random
+    {
         get => _random ?? new Random();
         set => _random = value;
     }
@@ -23,7 +24,8 @@ public class GameController : IGameController
         AnswerHistory = new List<SubmittedAnswer>();
     }
 
-    public Problem GenerateProblem(Operation operation) {
+    public Problem GenerateProblem(Operation operation)
+    {
         CurrentProblem = operation switch
         {
             Operation.Addition => Addition.GenerateRandom(),
@@ -35,15 +37,15 @@ public class GameController : IGameController
 
         return CurrentProblem;
     }
-    
+
 
     public SubmittedAnswer SubmitAnswer(int answer)
     {
-        if(CurrentProblem is null)
+        if (CurrentProblem is null)
         {
             throw new ArgumentNullException("Problem must be generated before submitting answer");
         }
-        
+
         var submittedAnswer = new SubmittedAnswer(CurrentProblem, answer);
         AnswerHistory.Append(submittedAnswer);
 
