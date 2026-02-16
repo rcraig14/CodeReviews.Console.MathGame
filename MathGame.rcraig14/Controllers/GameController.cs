@@ -2,7 +2,7 @@ using MathGame.rcraig14.Models;
 
 namespace MathGame.rcraig14.Controllers;
 
-public class GameControler : IGameController
+public class GameController : IGameController
 {
 
     private Problem? CurrentProblem {get; set;}
@@ -12,13 +12,13 @@ public class GameControler : IGameController
         set => _random = value;
     }
 
-    public GameControler(Random random)
+    public GameController(Random random)
     {
         _random = random;
         AnswerHistory = new List<SubmittedAnswer>();
     }
 
-    public GameControler()
+    public GameController()
     {
         AnswerHistory = new List<SubmittedAnswer>();
     }
