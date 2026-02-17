@@ -9,7 +9,6 @@ public enum Operation
 }
 
 
-
 public static class OperationConverter
 {
 
@@ -28,9 +27,7 @@ public static class OperationConverter
             default:
                 throw new InvalidOperationException();
         }
-        ;
     }
-
 }
 
 public class InvalidOperationString : Exception
