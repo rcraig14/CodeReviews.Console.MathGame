@@ -1,5 +1,3 @@
-using System;
-using System.Reflection.Metadata.Ecma335;
 using MathGame.rcraig14.Models;
 
 namespace MathGame.rcraig14.Controllers;
@@ -78,8 +76,8 @@ Select a type of problem
         int correct = 0;
         submittedAnswers.ForEach(answer =>
         {
-            Console.WriteLine($"{answer.Problem} {answer.UserAnswer} Correct: {answer.isCorrect()}");
-            correct += answer.isCorrect() ? 1 : 0;
+            Console.WriteLine($"{answer.Problem} {answer.UserAnswer} Correct: {answer.IsCorrect()}");
+            correct += answer.IsCorrect() ? 1 : 0;
         });
 
         Console.WriteLine($"Total Correct {correct} / {submittedAnswers.Count()}");

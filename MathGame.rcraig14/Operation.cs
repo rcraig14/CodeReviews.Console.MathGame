@@ -1,5 +1,3 @@
-using System.Collections;
-
 namespace MathGame.rcraig14;
 
 public enum Operation

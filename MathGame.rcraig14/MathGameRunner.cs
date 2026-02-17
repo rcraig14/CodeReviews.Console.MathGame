@@ -5,50 +5,50 @@ namespace MathGame.rcraig14;
 
 public class MathGameRunner
 {
-    private UserInteractionsController _userInteractionController { get; }
-    private GameController _gameController { get; }
-    private bool _newProblem { get; set; }
+    private UserInteractionsController UserInteractionController { get; }
+    private GameController GameController { get; }
+    private bool NewProblem { get; set; }
 
     public MathGameRunner(
         UserInteractionsController userInteractionsController,
         GameController gameController)
     {
-        _userInteractionController = userInteractionsController;
-        _gameController = gameController;
-        _newProblem = true;
+        UserInteractionController = userInteractionsController;
+        GameController = gameController;
+        NewProblem = true;
     }
 
     private void NextProblem()
     {
-        Operation op = _userInteractionController.GetNextOperationType();
-        Problem problem = _gameController.GenerateProblem(op);
+        Operation op = UserInteractionController.GetNextOperationType();
+        Problem problem = GameController.GenerateProblem(op);
 
         DateTime startTime = DateTime.UtcNow;
-        int userAnswer = _userInteractionController.GetAnswer(problem);
+        int userAnswer = UserInteractionController.GetAnswer(problem);
         DateTime endTime = DateTime.UtcNow;
 
-        SubmittedAnswer submittedAnswer = _gameController.SubmitAnswer(userAnswer, endTime - startTime);
-        _userInteractionController.DisplayResults(submittedAnswer);
+        SubmittedAnswer submittedAnswer = GameController.SubmitAnswer(userAnswer, endTime - startTime);
+        UserInteractionController.DisplayResults(submittedAnswer);
     }
 
     private void History()
     {
-        var history = _gameController.GetAnswerHistory();
-        _userInteractionController.DisplayAnswerHistory(history);
+        var history = GameController.GetAnswerHistory();
+        UserInteractionController.DisplayAnswerHistory(history);
     }
 
-    public void start()
+    public void Start()
     {
-        _userInteractionController.DisplayWelcome();
+        UserInteractionController.DisplayWelcome();
 
-        while (_newProblem)
+        while (NewProblem)
         {
-            NextStep next = _userInteractionController.GetNextStep();
+            NextStep next = UserInteractionController.GetNextStep();
 
             switch (next)
             {
                 case NextStep.Quit:
-                    _newProblem = false;
+                    NewProblem = false;
                     break;
                 case NextStep.History:
                     this.History();

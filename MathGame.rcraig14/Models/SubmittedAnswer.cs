@@ -1,5 +1,3 @@
-using System.Runtime.CompilerServices;
-
 namespace MathGame.rcraig14.Models;
 
 public class SubmittedAnswer
@@ -16,10 +14,10 @@ public class SubmittedAnswer
         TimeToComplete = timeToComplete;
     }
 
-    public bool isCorrect() => Problem.Answer() == UserAnswer;
+    public bool IsCorrect() => Problem.Answer() == UserAnswer;
 
     public override string ToString()
     {
-        return isCorrect() ? $"Correct the answer is {Problem.Answer()}" : $"Incorrect the answer is {Problem.Answer()}";
+        return IsCorrect() ? $"Correct the answer is {Problem.Answer()}" : $"Incorrect the answer is {Problem.Answer()}";
     }
 }
